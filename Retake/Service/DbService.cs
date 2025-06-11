@@ -170,7 +170,7 @@ public class DbService : IDbService
                     cmd2.Parameters.AddWithValue("@ProjectId", artifactRequestDto.Project.ProjectId);
                     cmd2.Parameters.AddWithValue("@ArtifactId", artifactRequestDto.Artifact.ArtifactId);
                     cmd2.Parameters.AddWithValue("@StartDate", artifactRequestDto.Project.StartDate);
-                    cmd2.Parameters.AddWithValue("@EndDate", artifactRequestDto.Project.EndDate);
+                    cmd2.Parameters.AddWithValue("@EndDate", artifactRequestDto.Project.EndDate == null ? DBNull.Value : artifactRequestDto.Project.EndDate);
                     cmd2.Parameters.AddWithValue("@Objective", artifactRequestDto.Project.Objective);
 
                     await cmd2.ExecuteNonQueryAsync();
